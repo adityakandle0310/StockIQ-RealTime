@@ -11,3 +11,10 @@ class Tick(BaseModel):
     @classmethod
     def clean_symbol(cls, v: str) -> str:
         return v.strip().upper()
+
+class Alert(BaseModel):
+    symbol: str
+    kind: str  # "price_spike" or "volume_spike"
+    message: str
+    price: float
+    ts: float
